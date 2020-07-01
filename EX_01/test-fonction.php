@@ -6,6 +6,7 @@
     </head>
     <body>
     <?php include("affichage.php");
+    include("gestion-produit.php")
     ?>
         <?php
         $nom_produit='T-shirt femme';
@@ -13,5 +14,23 @@
         $prix=15.50;
         $disponible=true;
         $quantité=10;
-        afficher_produit ($nom_produit , $couleur , $prix, $disponible)
+        $nb_ajout=5;
+        $nb_achat=5;
+
+        afficher_produit ($nom_produit , $couleur , $prix, $disponible);
+        $quantité=achat($quantité,5);
+        $disponible=update_dispo($quantité);
+        afficher_produit ($nom_produit , $couleur , $prix, $disponible);
+        $quantité=achat($quantité,5);
+        $disponible=update_dispo($quantité);
+        afficher_produit ($nom_produit , $couleur , $prix, $disponible);
+        $quantité=restockage ($quantité,5);
+        $disponible=update_dispo($quantité);
+        afficher_produit ($nom_produit , $couleur , $prix, $disponible);
+
+
         ?>
+        </body>
+        </html>
+
+
